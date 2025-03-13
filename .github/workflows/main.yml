@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: [self-hosted, linux, x64]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
         run: echo "Building.."
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     needs: build
     steps:
       - name: Checkout Code
@@ -30,7 +30,7 @@ jobs:
         run: echo "Testing.."
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     needs: test
     steps:
       - name: Checkout Code
